@@ -1,9 +1,13 @@
 {
-  "name": "template-generator",
+  "name": "templates-gen",
   "version": "1.0.0",
   "description": "Code Template Generator",
   "main": "index.js",
   "author": "Mark Benjamin",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mquadrant/template-generator"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
