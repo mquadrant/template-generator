@@ -1,0 +1,15 @@
+/node_modules
+/dist
+node_modules
+/coverage
+/.DS_Store
+/config.env
+config.env
+
+.env.development
+.env.production
+
+.DS_Store
+.DS_Stores
+
+.vscode
