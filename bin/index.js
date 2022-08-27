@@ -1,4 +1,4 @@
-#!/usr/bin/node
+#! /usr/bin/env node
 
 import inquirer from 'inquirer'
 import chalk from 'chalk'
@@ -8,12 +8,13 @@ import path from 'node:path';
 import { execa } from 'execa';
 import Listr from 'listr';
 import { projectInstall } from 'pkg-install';
+import boxen from 'boxen';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const CURRENT_DIRECTORY = process.cwd()
-const CHOICES = fs.readdirSync(`${__dirname}/templates`);
+const CHOICES = fs.readdirSync(`${__dirname}/../templates`);
 
 const QUESTIONS = [
   {
@@ -33,6 +34,8 @@ const QUESTIONS = [
   }
 ];
 
+greetingBox()
+
 inquirer.prompt(QUESTIONS)
   .then(async (answers) => {
 
@@ -50,8 +53,24 @@ inquirer.prompt(QUESTIONS)
     console.log('%s Project ready', chalk.green.bold('DONE'))
 });
 
+function greetingBox() {
+  const greeting = chalk.white.bold("Welcome to Templates Generator");
+
+  const boxenOptions = {
+  padding: 1,
+  margin: 1,
+  borderStyle: "round",
+  borderColor: "green",
+  backgroundColor: "#555555"
+  };
+
+  const msgBox = boxen( greeting, boxenOptions );
+
+  console.log(msgBox);
+}
+
 function createProject({projectChoice, projectName, projectDirectory}) {
-    const templatePath = `${__dirname}/templates/${projectChoice}`
+    const templatePath = `${__dirname}/../templates/${projectChoice}`
 
     fs.mkdirSync(projectDirectory)
 
