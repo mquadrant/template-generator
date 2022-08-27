@@ -7,8 +7,8 @@
 import debug from 'debug'
 import http from 'http'
 import config from 'config'
-import app from '../server/src/app'
-import log from '../server/src/logger'
+import app from '../src/app'
+import log from '../src/logger'
 
 debug('Sync-Party:server')
 
